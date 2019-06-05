@@ -1,0 +1,55 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+
+	<h:body>
+		<h1>All Users</h1>
+		<h:form>
+		<p:dataTable value="#{user.allUsers}" var="userVar" >
+			
+			<p:column headerText="First Name" sortBy="#{userVar.name}" filterBy="#{userVar.name}">
+				
+			#{userVar.name}
+				
+			</p:column>
+		
+			<p:column headerText="Last Name" sortBy="#{userVar.lastname}" filterBy="#{userVar.surname}"> 
+					
+					<h:outputLink value="userDetail.xhtml">
+						<f:param name="userId" value="#{userVar.id}"/>
+						#{userVar.lastname}
+					</h:outputLink>
+			</p:column>
+			
+			
+			
+			<p:column headerText="Password">
+				
+				#{userVar.password}
+			</p:column>
+			
+			<p:column headerText="Email" sortBy="#{userVar.email}" filterBy="#{userVar.email}">
+				
+				#{userVar.email}
+			</p:column>
+							
+		
+		</p:dataTable>		
+	
+	</h:form>
+		<BR />
+		<p:button outcome="createUser.xhtml" value="Create a user" style="margin-right:20px;">
+			
+		</p:button>
+		<BR />
+		<p:button outcome="index.xhtml" value="Home" style="margin-right:20px;">
+			
+		</p:button>
+		
+	</h:body>
+
+
+</HTML>

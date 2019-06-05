@@ -1,0 +1,81 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<f:metadata>
+			<f:viewParam name="articleId" value="#{article.articleId}"/>
+		</f:metadata>
+	
+	</h:head>
+	
+	<h:body>
+	
+	
+	
+	<h:form id="articleDetail">
+    <p:fieldset id="articleFields" legend="Article details">
+        <p:dataTable id="articleData" var="articleVar" value="#{article.articleById}" >
+	          <p:column style="width:20px">
+	              <p:commandButton value="Delete this article" action="#{article.deleteArticle(articleVar.id)}" />
+	                        
+	          </p:column>
+            <p:column headerText="Article by" width="30">
+                <h:outputText value="#{articleVar.user.username}" />
+            </p:column>
+ 
+            <p:column headerText="Article title" width="30">
+                <h:outputText value="#{articleVar.title}" />
+            </p:column>
+ 
+            <p:column headerText="Article text" width="50">
+                <h:outputText value="#{articleVar.content}" />
+            </p:column>
+ 
+                      
+        </p:dataTable>
+    </p:fieldset>
+    	
+	</h:form>
+	
+		<BR />
+		
+		<BR />
+		<p:button outcome="createArticle.xhtml" value="Write an article" style="margin-right:20px;">
+			
+		</p:button>
+		<BR />
+		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
+			
+		</p:button>
+	</h:body>
+
+
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

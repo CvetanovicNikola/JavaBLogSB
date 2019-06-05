@@ -1,0 +1,62 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Create article form</title>
+</h:head>
+<h:body>
+	 
+	<h:form>
+	 
+		<table>
+		
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Title:" />
+					<p:inputText  id="title" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			
+		
+		
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Content:" />
+					 <p:inputTextarea rows="6" cols="33" id="content" value="#{article.content}" required="true" />
+					
+					<h:message for="content" style="color:red;"/>
+				 </td>	
+			</tr>
+					
+			
+			
+		
+		</table>
+		<p><h:messages /></p>
+		<p>
+			<p:commandButton value="Done" action="#{article.createArticle()}" />
+			
+		</p>
+	</h:form>
+		<BR />
+		<p:button outcome="index.xhtml" value="Home" style="margin-right:20px;">
+			
+		</p:button>
+		<BR />
+		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
+			 
+		</p:button>
+		
+		
+</h:body>
+
+
+
+
+</HTML>

@@ -1,0 +1,45 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+
+	<h:body>
+		<h3>All Users</h3>
+		<h:form>
+		<p:dataTable value="#{article.allArticles}" var="articleVar" >
+			
+			<p:column headerText="Author" sortBy="#{articleVar.user.username}" filterBy="#{articleVar.user.username}">
+				#{articleVar.user.username}
+			</p:column>
+		
+			<p:column headerText="Title" sortBy="#{articleVar.title}" filterBy="#{articleVar.title}"> 
+					
+					<h:outputLink value="articleDetail.xhtml">
+						<f:param name="articleId" value="#{articleVar.id}"/>
+						#{articleVar.title}
+					</h:outputLink>
+			</p:column>
+			<p:column headerText="Content" sortBy="#{articleVar.content}" filterBy="#{articleVar.content}">
+				
+				#{articleVar.content}
+			</p:column>
+										
+		
+		</p:dataTable>		
+	
+	</h:form>
+		<BR />
+		<p:button outcome="createArticle.xhtml" value="Write an article" style="margin-right:20px;">
+			
+		</p:button>
+		<BR />
+		<p:button outcome="index.xhtml" value="Home" style="margin-right:20px;">
+			 
+		</p:button>
+		
+	</h:body>
+
+
+</HTML>

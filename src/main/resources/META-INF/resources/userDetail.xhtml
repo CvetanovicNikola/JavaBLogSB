@@ -1,0 +1,83 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<f:metadata>
+			<f:viewParam name="userId" value="#{user.userId}"/>
+		</f:metadata>
+	
+	</h:head>
+	
+	<h:body>
+	
+	
+	<h:form id="userDetail">
+    <p:fieldset id="userFields" legend="User details" style="color:red">
+        <p:dataTable id="userData" var="userVar" value="#{user.userById}" >
+          
+            <p:column headerText="Last name" width="30">
+                <h:outputText value="#{userVar.lastname}" />
+            </p:column>
+ 
+            <p:column headerText="Name" width="30">
+                <h:outputText value="#{userVar.name}" />
+            </p:column>
+           
+            <p:column headerText="Password" width="30">
+                <h:outputText value="#{userVar.password}" />
+            </p:column>
+             <p:column headerText="Email" width="30">
+                <h:outputText value="#{userVar.email}" />
+            </p:column>
+            <p:column style="width:20px">
+                    <p:commandButton style="color:red" value="Delete this user" action="#{user.deleteUser(userVar.id)}" />
+                        
+            </p:column>
+            
+        </p:dataTable>
+    </p:fieldset>
+    	
+	</h:form>
+	
+		<BR />
+	
+		<BR />
+		<p:button outcome="createUser.xhtml" value="Create a user" style="margin-right:20px;">
+			 <f:param name="productId" value="10" />
+		</p:button>
+		<BR />
+		<p:button outcome="allUsers.xhtml" value="View all users" style="margin-right:20px;">
+			 <f:param name="productId" value="10" />
+		</p:button>
+	</h:body>
+
+
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

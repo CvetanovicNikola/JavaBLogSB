@@ -1,0 +1,60 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Registration form</title>
+</h:head>
+<h:body>
+	 
+	<h:form>
+	 	<h1>User Login</h1>
+		<table>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Username:" />
+					<p:inputText  id="uname"  value="#{user.usernameLogin}" required="true" />
+					
+					<h:message for="uname" style="color:red;"/>
+				 </td>
+				
+			</tr>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Password:" />
+					<p:password id="passw" value="#{user.passwordLogin}" required="true" />
+					<h:message for="passw" style="color:red;"/>
+				 </td>	
+			</tr>
+			
+								
+		</table>
+		<p><h:messages /></p>
+		<p>
+			<p:commandButton value="login" action="#{user.userLogin()}" />
+			
+		</p>
+	</h:form>
+		<BR />
+		<BR />
+		<BR />
+		<BR />
+		<p:button outcome="createUser.xhtml" value="Create a user" style="margin-up:20px;">
+			 <f:param name="productId" value="10" />
+		</p:button>
+		<BR />
+		<BR />
+		<BR />
+		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
+			 <f:param name="productId" value="10" />
+		</p:button>
+		
+</h:body>
+
+
+
+
+</HTML>
