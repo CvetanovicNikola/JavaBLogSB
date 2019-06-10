@@ -6,7 +6,15 @@
 	  
 	  <h:head></h:head>
 	<body>
-	<h1>Welcome to the blog app!</h1>
+	
+	
+	<p:layout >
+	    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+	        West
+	    </p:layoutUnit>
+	 
+	    <p:layoutUnit position="center">
+	        <h1>Welcome to the blog app!</h1>
 		
 		<BR />
 		<BR />
@@ -36,6 +44,12 @@
 		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
 			 
 		</p:button>
+	    </p:layoutUnit>
+   	    <p:layoutUnit position="east" size="100">
+	        east
+	    </p:layoutUnit>
+	</p:layout>
+	
 	</body>
 	
 </HTML>

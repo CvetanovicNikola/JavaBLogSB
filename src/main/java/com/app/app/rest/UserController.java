@@ -1,9 +1,6 @@
 package com.app.app.rest;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,51 +23,52 @@ public class UserController {
 	
 	@PostMapping("/users")
 	public User addUser(@RequestBody @Valid User user) {
-//		if(result.hasErrors()) {
-//			throw new ConstraintViolationException(null);
-//		}
-		userRepository.save(user);
-		return user;
-		//return new ResponseEntity<User> (user, HttpStatus.OK) ;
+		return userRepository.save(user);
+		
 	}
+	
 	@GetMapping("/users")
 	public List<User> getAllUsers(){
 		return userRepository.findAll();
 		
 	}
-	@GetMapping("/users/{id}")
-	public Optional<User> getUserById (@PathVariable int id) {
-		Optional<User> user= userRepository.findById(id);
-		if(!user.isPresent()) {
-			throw new UserNotFoundException("user with id " + id + " not found");
-		}
-		return user;
-	}
-	@PutMapping("users/{id}")
-	public User updateUser(@PathVariable int id, @RequestBody User user) {
-		Optional<User> userFromDb = userRepository.findById(id);
-		if(userFromDb.isPresent()) {
-			user.setId(userFromDb.get().getId());
+	
+	@GetMapping("/users/{userId}")
+	public User getUserById (@PathVariable int userId) {
+		return userRepository.findById(userId)
+				.orElseThrow(() -> new UserNotFoundException("No such user!"));
 				
-		}
-		userRepository.save(user);
-		return user;
-	}
-	@DeleteMapping("/users/{id}")
-	public void deleteUser(@PathVariable int id) {
-		userRepository.deleteById(id);
-	}
-	@GetMapping("/user/{username}")
-	public User getUserByUsername(@PathVariable String username){
-		List<User> allUsers = userRepository.findAll();
-		Optional<User> user = allUsers.stream()
-				.filter(u -> u.getUsername().equals(username))
-				.findFirst();
-		if(!user.isPresent()) {
-			throw new UserNotFoundException("No such user");
-		}
-		return user.get();
 	}
 	
+	@PutMapping("users/{userId}")
+	public User updateUser(@PathVariable int userId, @RequestBody User user) {
+		return userRepository
+				.findById(userId)
+				.map(u ->{
+					u.setName(user.getName());
+					u.setLastname(user.getLastname());
+					u.setPassword(user.getPassword());
+					u.setUsername(user.getUsername());
+					u.setEmail(user.getEmail());
+					u.setDate(user.getDate());
+					return userRepository.save(u);
+					}).orElseThrow(() -> new UserNotFoundException("No such user!"));
+	}
+	
+	@DeleteMapping("/users/{userId}")
+	public void deleteUser(@PathVariable int userId) {
+		userRepository.delete(userRepository.findById(userId)
+				.orElseThrow(() -> new UserNotFoundException("No such user!")));
+		
+	}
+	
+	@GetMapping("/user/{username}")
+	public User getUserByUsername(@PathVariable String username){
+		return userRepository.findAll().stream()
+				.filter(u -> u.getUsername().equals(username))
+				.findFirst()
+				.orElseThrow(() -> new UserNotFoundException("No such user"));
+		
+	}
 
 }

@@ -68,7 +68,7 @@ public class UserBean implements Serializable{
 		
 	public User getUserById() {
 		int id = Integer.valueOf(userId);
-		return userController.getUserById(id).get();
+		return userController.getUserById(id);
 	}
 	
 	public String createUser() {

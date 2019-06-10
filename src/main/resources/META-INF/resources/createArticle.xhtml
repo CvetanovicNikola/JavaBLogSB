@@ -7,8 +7,17 @@
 	<title>Create article form</title>
 </h:head>
 <h:body>
-	 
-	<h:form>
+	
+	
+	
+	
+	<p:layout style="min-height:2000px;">
+    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+        West
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+        <h:form>
 	 
 		<table>
 		
@@ -22,15 +31,46 @@
 				 </td>	
 			</tr>
 			
-		
-		
+				<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag:" />
+					<p:inputText  id="tag" value="#{article.tagValue}" required="false" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>		
 			<tr>
 				
 				<td>
-					<p:outputLabel for="@next" value="Content:" />
-					 <p:inputTextarea rows="6" cols="33" id="content" value="#{article.content}" required="true" />
-					
-					<h:message for="content" style="color:red;"/>
+					<h:form>    
+    
+					    <p:textEditor widgetVar="editor2" value="#{article.content}" height="300" style="margin-bottom:10px" placeholder="Enter your content">
+					        <f:facet name="toolbar">
+					             <span class="ql-formats">
+					                <button class="ql-bold"></button>
+					                <button class="ql-italic"></button>
+					                <button class="ql-underline"></button>
+					                <button class="ql-strike"></button>
+					            </span>
+					            <span class="ql-formats">
+					                <select class="ql-font"></select>
+					                <select class="ql-size"></select>
+					            </span>
+					        </f:facet>
+					    </p:textEditor>
+					     
+					    <p:commandButton action="#{article.createArticle()}" value="Submit" update="display" oncomplete="PF('dlg').show()" icon="pi pi-save" />
+					    <p:commandButton value="Clear" type="button" onclick="PF('editor2').clear();" icon="pi pi-times" />
+					     
+					    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+					        <p:outputPanel id="display">
+					            
+					            <h:outputText value="#{editorView.text}" escape="false" />
+					 					          					            
+					        </p:outputPanel>
+					    </p:dialog>     
+					</h:form>
 				 </td>	
 			</tr>
 					
@@ -38,11 +78,7 @@
 			
 		
 		</table>
-		<p><h:messages /></p>
-		<p>
-			<p:commandButton value="Done" action="#{article.createArticle()}" />
-			
-		</p>
+		
 	</h:form>
 		<BR />
 		<p:button outcome="index.xhtml" value="Home" style="margin-right:20px;">
@@ -52,6 +88,13 @@
 		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
 			 
 		</p:button>
+    </p:layoutUnit>
+    <p:layoutUnit position="east" resizable="false" size="100" minSize="40" maxSize="200">
+        east
+    </p:layoutUnit>
+</p:layout>
+	 
+	
 		
 		
 </h:body>

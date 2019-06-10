@@ -12,31 +12,35 @@
 	
 	<h:body>
 	
-	
-	
-	<h:form id="articleDetail">
-    <p:fieldset id="articleFields" legend="Article details">
-        <p:dataTable id="articleData" var="articleVar" value="#{article.articleById}" >
-	          <p:column style="width:20px">
-	              <p:commandButton value="Delete this article" action="#{article.deleteArticle(articleVar.id)}" />
-	                        
-	          </p:column>
-            <p:column headerText="Article by" width="30">
-                <h:outputText value="#{articleVar.user.username}" />
-            </p:column>
- 
-            <p:column headerText="Article title" width="30">
-                <h:outputText value="#{articleVar.title}" />
-            </p:column>
- 
-            <p:column headerText="Article text" width="50">
-                <h:outputText value="#{articleVar.content}" />
-            </p:column>
- 
-                      
-        </p:dataTable>
-    </p:fieldset>
-    	
+	<p:layout >
+	    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" >
+	        West
+	    </p:layoutUnit>
+	 
+	    <p:layoutUnit position="center">
+	        <h:form id="articleDetail">
+	    <p:fieldset id="articleFields" legend="Article details">
+	        <p:dataTable id="articleData" var="articleVar" value="#{article.articleById}" >
+		          <p:column style="width:20px">
+		              <p:commandButton value="Delete this article" action="#{article.deleteArticle(articleVar.id)}" />
+		                        
+		          </p:column>
+	            <p:column headerText="Article by" width="30">
+	                <h:outputText value="#{articleVar.user.username}" />
+	            </p:column>
+	 			
+	            <p:column headerText="Article title" width="30">
+	                <h:outputText value="#{articleVar.title}" />
+	            </p:column>
+	 
+	            <p:column headerText="Article text" width="50">
+	                <h:outputText value="#{articleVar.content}" />
+	            </p:column>
+	 
+	                      
+	        </p:dataTable>
+	    </p:fieldset>
+    	 
 	</h:form>
 	
 		<BR />
@@ -49,6 +53,13 @@
 		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
 			
 		</p:button>
+	    </p:layoutUnit>
+	     <p:layoutUnit position="east" resizable="false" size="100" minSize="40" >
+	        east
+	    </p:layoutUnit>
+	</p:layout>
+	
+	
 	</h:body>
 
 

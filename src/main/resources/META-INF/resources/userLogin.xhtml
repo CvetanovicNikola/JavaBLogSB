@@ -8,7 +8,14 @@
 </h:head>
 <h:body>
 	 
-	<h:form>
+	 
+	 <p:layout >
+	    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+	        West
+	    </p:layoutUnit>
+	 
+	    <p:layoutUnit position="center">
+	        <h:form>
 	 	<h1>User Login</h1>
 		<table>
 			<tr>
@@ -52,6 +59,12 @@
 			 <f:param name="productId" value="10" />
 		</p:button>
 		
+	    </p:layoutUnit>
+	    <p:layoutUnit position="east" size="100">
+	        east
+	    </p:layoutUnit>
+	</p:layout>
+	
 </h:body>
 
 

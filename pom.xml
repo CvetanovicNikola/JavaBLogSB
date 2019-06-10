@@ -24,6 +24,12 @@
 	        <id>projectlombok.org</id>
 	        <url>http://projectlombok.org/mavenrepo</url>
 	    </repository>
+
+		  <repository>
+		      <id>primefaces-maven-repository</id>
+		      <name>PrimeFaces Maven Repository</name>
+		      <url>http://repository.primefaces.org</url>
+		    </repository>
 	</repositories>
 	
 	
@@ -42,6 +48,11 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>cupertino</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 	    <dependency>
 	        <groupId>org.projectlombok</groupId>
 	        <artifactId>lombok</artifactId>

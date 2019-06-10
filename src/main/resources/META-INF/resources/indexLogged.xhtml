@@ -6,45 +6,59 @@
 	  
 	  <h:head></h:head>
 	<body>
-	<h1>Welcome to the blog app!</h1>
-		
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<p:button outcome="createUser.xhtml" value="Create user" style="margin-up:20px;">
+	
+	
+	<p:layout>
+	    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+	        West
+	    </p:layoutUnit>
+	 
+	    <p:layoutUnit position="center">
+	        <h1>Welcome to the BlogApp #{user.loggedUser.name}</h1>
 			
-		</p:button>
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<p:button outcome="userLogin.xhtml" value="Login" style="margin-up:20px;">
-			
-		</p:button>
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
-			 
-		</p:button>
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<BR />
-		<p:button outcome="createArticle.xhtml" value="Create an article" style="margin-right:20px;">
-			 
-		</p:button>
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<p:button outcome="createUser.xhtml" value="Create user" style="margin-up:20px;">
+				
+			</p:button>
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<p:button outcome="userLogin.xhtml" value="Login" style="margin-up:20px;">
+				
+			</p:button>
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
+				 
+			</p:button>
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<BR />
+			<p:button outcome="createArticle.xhtml" value="Create an article" style="margin-right:20px;">
+				 
+			</p:button>
+	    </p:layoutUnit>
+	     <p:layoutUnit position="east" size="100">
+	        Center
+	    </p:layoutUnit>
+	</p:layout>
+	
 	</body>
 	
 </HTML>

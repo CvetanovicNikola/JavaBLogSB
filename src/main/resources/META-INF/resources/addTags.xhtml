@@ -1,0 +1,98 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Create article form</title>
+</h:head>
+<h:body>
+	
+	
+	
+	
+	<p:layout style="min-height:2000px;">
+    <p:layoutUnit position="west" resizable="false" size="100" minSize="40" maxSize="200">
+        West
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+        <h:form>
+	 
+		<table>
+		
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag 1:" />
+					<p:inputText  id="tag1" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag 2:" />
+					<p:inputText  id="tag2" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag 3:" />
+					<p:inputText  id="tag3" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag 3:" />
+					<p:inputText  id="tag3" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			<tr>
+				
+				<td>
+					<p:outputLabel for="@next" value="Tag 4:" />
+					<p:inputText  id="tag4" value="#{article.title}" required="true" />
+					
+					<h:message for="lname" style="color:red;"/>
+				 </td>	
+			</tr>
+			
+					
+					
+		
+		</table>
+		
+	</h:form>
+		<BR />
+		<p:button outcome="index.xhtml" value="Home" style="margin-right:20px;">
+			
+		</p:button>
+		<BR />
+		<p:button outcome="allArticles.xhtml" value="View all articles" style="margin-right:20px;">
+			 
+		</p:button>
+    </p:layoutUnit>
+    <p:layoutUnit position="east" resizable="false" size="100" minSize="40" maxSize="200">
+        east
+    </p:layoutUnit>
+</p:layout>
+	 
+	
+		
+		
+</h:body>
+
+
+
+
+</HTML>
