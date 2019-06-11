@@ -23,7 +23,6 @@ public class Rating {
 	@Id
 	@GeneratedValue
 	private int id;
-	
 	private int rating;
 	@JsonIgnore
 	@ManyToOne

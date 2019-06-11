@@ -1,5 +1,6 @@
 package com.app.app.rest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class ArticleController {
 	@PostMapping("/users/{userId}/articles")
 	public Article createArticle(  @PathVariable int userId, @Valid @RequestBody Article article) {
 		article.setUser(userController.getUserById(userId));
+		article.setCreatedTime(LocalDateTime.now());
 		articleRepository.save(article);
 		return article;
 	}

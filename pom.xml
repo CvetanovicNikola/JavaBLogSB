@@ -12,7 +12,7 @@
 	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>app</name>
-	<description>Demo project for Spring Boot</description>
+	<description>BlogAppt</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -20,32 +20,24 @@
 	</properties>
 
 	<repositories>
-	    <repository>
-	        <id>projectlombok.org</id>
-	        <url>http://projectlombok.org/mavenrepo</url>
-	    </repository>
-
-		  <repository>
+	   	  <repository>
 		      <id>primefaces-maven-repository</id>
 		      <name>PrimeFaces Maven Repository</name>
 		      <url>http://repository.primefaces.org</url>
-		    </repository>
+		   </repository>
 	</repositories>
 	
-	
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.joinfaces</groupId>
-        <artifactId>joinfaces-dependencies</artifactId>
-        <version>${joinfaces.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
-
+	  <dependencyManagement>
+	    <dependencies>
+	      <dependency>
+	        <groupId>org.joinfaces</groupId>
+	        <artifactId>joinfaces-dependencies</artifactId>
+	        <version>${joinfaces.version}</version>
+	        <type>pom</type>
+	        <scope>import</scope>
+	      </dependency>
+	    </dependencies>
+	  </dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -56,20 +48,15 @@
 	    <dependency>
 	        <groupId>org.projectlombok</groupId>
 	        <artifactId>lombok</artifactId>
-	       
 	    </dependency>
-	   <dependency>
+	    <dependency>
 	      <groupId>org.joinfaces</groupId>
 	      <artifactId>primefaces-spring-boot-starter</artifactId>
-	      
 	    </dependency>
 	    <dependency>
 	      <groupId>javax.enterprise</groupId>
 	      <artifactId>cdi-api</artifactId>
-	      
 	    </dependency>
-			
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -82,7 +69,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

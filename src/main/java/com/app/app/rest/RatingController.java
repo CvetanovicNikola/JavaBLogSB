@@ -2,9 +2,6 @@ package com.app.app.rest;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.app.app.exceptions.ArticleAlreadyVoted;
+import com.app.app.exceptions.RatingException;
 import com.app.app.model.Rating;
 import com.app.app.repository.ArticleRepository;
 import com.app.app.repository.RatingRepository;
@@ -46,6 +44,18 @@ public class RatingController {
 	
 	@PostMapping("users/{userId}/articles/{articleId}/rating")
 	public Rating addRating(@PathVariable int userId, @PathVariable int articleId, @RequestBody Rating rating) {
+		if(rating.getRating() <1 || rating.getRating() > 5) throw new RatingException("Rating must be between 1 and 5!");
+//		getRatingsByArticleId(articleId).stream()
+//						.filter(r -> r.getUser().getId() == userId)
+//						.findAny()
+//						.map(r -> {
+//							r.setUser(userController.getUserById(userId));
+//							r.setArticle(articleController.getArticle(articleId));
+//							return ratingRepository.save(rating);
+//						})
+//						.ifPresent(r -> { throw new ArticleAlreadyVoted("You already voted for that article!");
+//						});
+			
 		getRatingsByArticleId(articleId).stream()
 						.filter(r -> r.getUser().getId() == userId)
 						.findAny()

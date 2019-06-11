@@ -1,5 +1,6 @@
 package com.app.app.rest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class UserController {
 	
 	@PostMapping("/users")
 	public User addUser(@RequestBody @Valid User user) {
+		user.setCreatedTime(LocalDateTime.now());
 		return userRepository.save(user);
 		
 	}
@@ -50,7 +52,7 @@ public class UserController {
 					u.setPassword(user.getPassword());
 					u.setUsername(user.getUsername());
 					u.setEmail(user.getEmail());
-					u.setDate(user.getDate());
+					u.setCreatedTime(user.getCreatedTime());
 					return userRepository.save(u);
 					}).orElseThrow(() -> new UserNotFoundException("No such user!"));
 	}
